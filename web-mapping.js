@@ -1,5 +1,5 @@
 /*specifying map extent*/
-var extents = new OpenLayers.Bounds(1834497, -4341911, 3283012, -2509131); 
+var extents = new OpenLayers.Bounds(1634497, -4341911, 3883012, -2509131); 
 
 
 /*loading controls to the map*/
@@ -8,6 +8,7 @@ var control, controls = [];
    var map = new OpenLayers.Map("map", {
         controls: [
             new OpenLayers.Control.Navigation(),
+            new OpenLayers.Control.ScaleLine(),
             new OpenLayers.Control.LayerSwitcher({'div':OpenLayers.Util.getElement('dropdown-content')}),
             new OpenLayers.Control.MousePosition(),
             new OpenLayers.Control.PanZoomBar(),
@@ -28,7 +29,7 @@ var control, controls = [];
 
 /*loading the overlay layers from GeoServer as WMS*/
   var district = new OpenLayers.Layer.WMS (
-        "sa_district_municipality",
+        "District Municipality",
         "http://localhost:8085/geoserver/RSAcontext/wms",
         {layers:"RSAcontext:sa_district_municipality",transparent: true, format: "image/gif"},
         {visibility: true},
@@ -36,7 +37,7 @@ var control, controls = [];
 );
 
  var local = new OpenLayers.Layer.WMS (
-        "sa_local_municipality",
+        "Local Municipality",
         "http://localhost:8085/geoserver/RSAcontext/wms",
         {layers:"RSAcontext:sa_local_municipality",transparent: true, format: "image/gif"},
         {visibility: false},
@@ -44,7 +45,7 @@ var control, controls = [];
 );
 
  var province = new OpenLayers.Layer.WMS (
-        "sa_province",
+        "Province",
         "http://localhost:8085/geoserver/RSAcontext/wms",
         {layers:"RSAcontext:sa_province",transparent: true, format: "image/gif"},
         {visibility: false},
@@ -52,7 +53,7 @@ var control, controls = [];
 );
 
  var railway = new OpenLayers.Layer.WMS (
-        "sa_railway",
+        "Railway",
         "http://localhost:8085/geoserver/RSAcontext/wms",
         {layers:"RSAcontext:sa_railway",transparent: true, format: "image/gif"},
         {visibility: false},
@@ -60,7 +61,7 @@ var control, controls = [];
 );
 
  var road = new OpenLayers.Layer.WMS (
-    "sa_road_2018_12_05",
+    "Road",
     "http://localhost:8085/geoserver/RSAcontext/wms",
     {layers:"RSAcontext:sa_road_2018_12_05",transparent: true, format: "image/gif"},
     {visibility: true},
@@ -68,9 +69,9 @@ var control, controls = [];
 );
 
  var town = new OpenLayers.Layer.WMS (
-    "town_city",
+    "Town/City",
     "http://localhost:8085/geoserver/RSAcontext/wms",
-    {layers:"RSAcontext:town_city",transparent: true, format: "image/gif"},
+    {layers:"RSAcontext:town_city", transparent: true, format:"image/gif"},
     {visibility: true},
     {'displayInLayerSwitcher':true}
 );
@@ -81,4 +82,4 @@ map.addLayers([OSM,road,railway,local,district,province,town]);
 
 
 /*specifying the map center and the default zoom level*/
-map.setCenter(new OpenLayers.LonLat(2734497,-3409131),6);
+map.setCenter(new OpenLayers.LonLat(2734497,-3345131),6);
