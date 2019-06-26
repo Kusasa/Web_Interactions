@@ -1,0 +1,11 @@
+body { 
+    margin:0; padding:0;
+}
+
+h1   { 
+    text-align: center; text-decoration-line: underline; 
+}
+
+#mapid { 
+    height: 480px; background-color: rgb(230, 242, 248); 
+}

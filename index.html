@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>RSA Context</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
-		<!-- loading the stylesheet -->
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<!-- loading the style from the OpenLayers library -->
-		<link rel="stylesheet" type="text/css" href="D:/Programming/ref_lib/OpenLayers/theme/default/style.css"/>
-		<!-- loading the OpenLayers javaScript file -->
-     	<script src="D:/Programming/ref_lib/OpenLayers/OpenLayers.js"></script>
-     </head>
-     <body>
-	 	<h2>
-		 	Contextual Map of South Africa
-		</h2>
-     	<!-- the div holding the map -->
-     	<div id="map">
-     		<!-- loading the javaScript file containing the properties of the map -->
-     		<script type="text/javascript" src="web-mapping.js"></script>
-		</div>
-     </body>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            Leaflet-based map
+        </title>
+        <link rel="stylesheet" href="lib/mapping.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+        <script src= "https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    </head>
+    <body>
+        <h1>Map</h1>
+        <p>
+            <div id="mapid"></div>
+        </p>
+        <script>
+            var mymap = L.map('mapid',{
+                zoom: 4,
+                center: [-21.95876,34.55524],
+                });                
+            
+            var baselayer = new L.TileLayer.WMS('http://196.41.13.52:7777/geoserver/ramm-live-data/wms?Tiled=true&',{
+                layers: 'ramm-live-data:new_cape_town',
+                format: 'image/png',
+                transparent: true,
+                attribution: 'Map data &copy; <a href="https://www.ramm.co.za/">RAMM Technologies</a> contributors, Kusasa, Imagery © <a href="http://geoserver.org/">GeoServer</a>'
+                });
+            
+            var scale = L.control.scale();
+            
+            baselayer.addTo(mymap);
+            scale.addTo(mymap);
+        </script>
+    </body>
 </html>
-
-
-
-
