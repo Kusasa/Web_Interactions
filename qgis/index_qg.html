@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            Leaflet-based map
+        </title>
+        <link rel="stylesheet" href="lib/mapping.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+        <script src= "https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    </head>
+    <body>
+        <h1>Map</h1>
+        <p>
+            <div id="mapid"></div>
+        </p>
+        <script>
+            var mymap = L.map('mapid',{
+                zoom: 4,
+                center: [-21.95876,34.55524],
+                });                
+            
+            var baselayer = new L.TileLayer.WMS('http://192.168.5.14:3333/cgi-bin/qgis_mapserv.fcgi.exe?MAP=G:/RAMM_Enterprise_GIS/QGIS_Mapsets_of_GeoServer/New_CapeTown.qgs&',{
+                layers: 'world_extent,hillshade_WC,world_biomes,continent,country,sa_biomes,province_region,sa_province,coct_building_footprints,coct_regions,sa_protected_areas,sa_vegetation_ecosystems,coct_suburb_wgs_region,coct_cad_2019-05-21,pcn_groups,coct_park,sa_waterbodies,sa_waterway,sa_railway,sa_road_2019_02_25,pcn_centroids,coct_fire_station,sa_place,sa_police_sations,world_airports,sa_town,capital_city',
+                format: 'image/png',
+                transparent: true,
+                attribution: 'Map data &copy; <a href="https://www.ramm.co.za/">RAMM Technologies</a> contributors, Kusasa, Imagery © <a href="https://qgis.org/en/site/">QGIS</a>'
+                });
+            
+            var scale = L.control.scale();
+            
+            baselayer.addTo(mymap);
+            scale.addTo(mymap);
+        </script>
+    </body>
+</html>
