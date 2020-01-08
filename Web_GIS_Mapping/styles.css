@@ -1,3 +1,15 @@
 h2 {
     text-align: center;
-}
+    text-decoration-line: underline;
+};
+
+.ol-mouse-position {
+    font-style: normal;
+    position: absolute;
+};
+
+.scale {
+    position: absolute;
+    bottom: 50px;
+    left: 1px;
+};
