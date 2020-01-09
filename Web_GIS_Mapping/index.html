@@ -3,14 +3,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./libs/v6_openlayers/ol.css">
+    <link rel="stylesheet" href="./styles.css">
     <title>Web Map</title>
 </head>
 <body>
     <h2>Web GIS Map Template</h2>
-    <div id='popup-container'>
-        <p id='popup-coordinates'></p>
+    <div id= "layer-controls">
+        <div id="base-maps">
+            <h3>Base Maps</h3>
+        </div>
+        <div id="layers">
+            <h3>Layers</h3>
+        </div>
+        <div id="supporting_information">
+            <h3>Supporting Information</h3>
+        </div>
     </div>
     <div id="map" class="map">
         <div id="scale" class="scale-line"></div>
