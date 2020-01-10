@@ -141,5 +141,4 @@ function init(){
     this.checked ? targetLayer.setVisible(true) : targetLayer.setVisible(false)
   })
   }
-
 }
