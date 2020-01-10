@@ -22,8 +22,8 @@ function init(){
   const map = new ol.Map({
     target: 'map',
     view: new ol.View({
-      center: [0, 0],
-      zoom: 4
+      center: [2000000,-1000000],
+      zoom: 3
     }),
     controls: ol.control.defaults().extend([
       mapOverviewControl,
@@ -41,7 +41,7 @@ function init(){
       attributions: 'Credit to <a href=https://www.openstreetmap.org>© OSM</a>'
     }),
     zIndex: 0,
-    visible:true,
+    visible:false,
     title: 'standardOSM'
   });
   //OSM Humanitarian
@@ -62,7 +62,7 @@ function init(){
       attributions: 'Credit to <a href=https://www.bing.com/maps>© Bing Maps</a>'
     }),
     zIndex: 0,
-    visible:false,
+    visible:true,
     title: 'bingMaps'
   });
 
@@ -91,7 +91,7 @@ function init(){
   //NOAA WMS Layer
   const NOAALayer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-      url: 'https://nowcoast.noaa.gov/arcgis/services/nowcoast/analysis_meteohydro_sfc_rtma_time/MapServer/WMSServer?',
+      url: 'https://nowcoast.noaa.gov/arcgis/services/nowcoast/forecast_meteoceanhydro_sfc_ndfd_relhumidity_offsets/MapServer/WMSServer?',
       params: {
         LAYERS: 1,
         FORMAT: 'image/png',
@@ -105,22 +105,35 @@ function init(){
     title: 'NOAALayer'
   });
 
-  // sa provinces KML
-  const examplesKML = new ol.layer.Vector({
+  // sa inland provinces KML
+  const sa_inland_provincesKML = new ol.layer.Vector({
     source: new ol.source.Vector({
-      url: 'data/Examples.kml',
+      url: 'data/sa_inland_provinces.kml',
       format: new ol.format.KML()
     }),
     zIndex: 2,
     opacity: 1,
     visible:true,
-    title: 'examplesKML'  
+    title: 'sa_inland_provincesKML'  
+  });
+
+  // sa district municipalities KML
+  const sa_district_municipalityKML = new ol.layer.Vector({
+    source: new ol.source.Vector({
+      url: 'data/sa_district_municipality.kml',
+      format: new ol.format.KML()
+    }),
+    zIndex: 2,
+    opacity: 1,
+    visible:true,
+    title: 'sa_district_municipalityKML', 
   });
 
   const layersGroup = new ol.layer.Group({
     layers: [
       NOAALayer,
-      examplesKML
+      sa_inland_provincesKML,
+      sa_district_municipalityKML
     ]
   });
   map.addLayer(layersGroup);
