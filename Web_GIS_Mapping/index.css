@@ -10,7 +10,7 @@ h2 {
 
 /* Layer Control Container divs*/
 
-#layer-controls {
+.layer-controls {
     position: absolute;
     height: 80%;
     left: 1%;
@@ -19,22 +19,29 @@ h2 {
     padding: 3px;
 }
 
-#base-maps {
+.base-maps {
     position: absolute;
     top: 0%;
     bottom: 66%
 }
 
-#layers {
+.layers {
     position: absolute;
     top: 33%;
     bottom: 33%
 }
 
-#supporting_information {
+.supporting_information {
     position: absolute;
     top: 66%;
     bottom: 0%
+}
+
+#earth-flag {
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
 }
 
 /* Map Container divs*/
