@@ -4,26 +4,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./libs/openlayers/ol.css">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./index.css">
     <title>Web Map</title>
 </head>
 <body>
     <h2>Web GIS Map Template</h2>
-    <div id= "layer-controls">
-        <div id="base-maps">
+    <div class= "layer-controls">
+        <div class="base-maps">
             <h3>Base Maps</h3>
+            <input type="radio" name="baseMapsRadioInput" value="standardOSM" checked>Standard OSM<br>
+            <input type="radio" name="baseMapsRadioInput" value="humanitarianOSM">Humanitarian OSM<br>
+            <input type="radio" name="baseMapsRadioInput" value="bingMaps">Bing Maps<br>
         </div>
-        <div id="layers">
+        <div class="layers">
             <h3>Layers</h3>
+            <input type="checkbox" name="layersCheckboxInput" value="NOAALayer" checked>NOAA Layer<br>
+            <input type="checkbox" name="layersCheckboxInput" value="examplesKML" checked>Examples KML<br>
         </div>
-        <div id="supporting_information">
+        <div class="supporting_information">
             <h3>Supporting Information</h3>
+            <img id="earth-flag" src="images/earth.jpg" alt="Planet Earth Flag">
         </div>
     </div>
     <div id="map" class="map">
         <div id="scale" class="scale-line"></div>
     </div>
     <script src="./libs/openlayers/ol.js"></script>
-    <script src="./main.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
