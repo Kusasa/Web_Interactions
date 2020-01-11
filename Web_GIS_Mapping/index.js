@@ -23,7 +23,7 @@ function init(){
     target: 'map',
     view: new ol.View({
       center: [2000000,-1000000],
-      zoom: 3
+      zoom: 1
     }),
     controls: ol.control.defaults().extend([
       mapOverviewControl,
@@ -88,6 +88,30 @@ function init(){
   }
 
   // Layer LayerGroup
+  // sa district municipalities KML
+  const sa_district_municipalityKML = new ol.layer.Vector({
+    source: new ol.source.Vector({
+      url: 'data/sa_district_municipality.kml',
+      format: new ol.format.KML()
+    }),
+    zIndex: 1,
+    opacity: 1,
+    visible:true,
+    title: 'sa_district_municipalityKML' 
+  });
+
+  // sa inland provinces KML
+  const sa_inland_provincesKML = new ol.layer.Vector({
+    source: new ol.source.Vector({
+      url: 'data/sa_inland_provinces.kml',
+      format: new ol.format.KML()
+    }),
+    zIndex: 1,
+    opacity: 1,
+    visible:true,
+    title: 'sa_inland_provincesKML'  
+  });
+
   //NOAA WMS Layer
   const NOAALayer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
@@ -100,40 +124,16 @@ function init(){
       attributions: 'Credit to <a href=https://nowcoast.noaa.gov/>© NOAA</a>'
     }),
     zIndex: 1,
-    opacity: 0.5,
+    opacity: 1,
     visible:true,
     title: 'NOAALayer'
   });
 
-  // sa inland provinces KML
-  const sa_inland_provincesKML = new ol.layer.Vector({
-    source: new ol.source.Vector({
-      url: 'data/sa_inland_provinces.kml',
-      format: new ol.format.KML()
-    }),
-    zIndex: 2,
-    opacity: 1,
-    visible:true,
-    title: 'sa_inland_provincesKML'  
-  });
-
-  // sa district municipalities KML
-  const sa_district_municipalityKML = new ol.layer.Vector({
-    source: new ol.source.Vector({
-      url: 'data/sa_district_municipality.kml',
-      format: new ol.format.KML()
-    }),
-    zIndex: 2,
-    opacity: 1,
-    visible:true,
-    title: 'sa_district_municipalityKML', 
-  });
-
   const layersGroup = new ol.layer.Group({
     layers: [
-      NOAALayer,
       sa_inland_provincesKML,
-      sa_district_municipalityKML
+      sa_district_municipalityKML,
+      NOAALayer
     ]
   });
   map.addLayer(layersGroup);
